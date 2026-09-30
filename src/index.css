@@ -1,0 +1,257 @@
+@import 'tailwindcss';
+
+@import '@fontsource-variable/inter';
+@import '@fontsource-variable/plus-jakarta-sans';
+
+@theme {
+  /* ——— Typographie ——— */
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: 'Plus Jakarta Sans Variable', 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+
+  /* ——— Vert agricole profond (primaire) ——— */
+  --color-forest-950: #05180f;
+  --color-forest-900: #0a2c1b;
+  --color-forest-800: #0f4429;
+  --color-forest-700: #145234;
+  --color-forest-600: #1a6b41;
+  --color-forest-500: #21854f;
+
+  /* ——— Vert clair (accents) ——— */
+  --color-leaf-500: #3fa36a;
+  --color-leaf-400: #63bd8a;
+  --color-leaf-300: #92d3ae;
+  --color-leaf-200: #bfe6ce;
+  --color-leaf-100: #ddf1e5;
+  --color-leaf-50: #eff8f2;
+
+  /* ——— Accent discret (soleil / récolte) ——— */
+  --color-sun-700: #8a5a12;
+  --color-sun-600: #a86f17;
+  --color-sun-500: #c98a24;
+  --color-sun-400: #dfa94b;
+  --color-sun-200: #f4e0ba;
+  --color-sun-100: #faf1de;
+
+  /* ——— Neutres ——— */
+  --color-ivory: #fbfaf6;
+  --color-mist: #f4f6f4;
+  --color-line: #e5e9e6;
+  --color-line-soft: #eef1ee;
+  --color-ink: #0e1512;
+  --color-ink-soft: #455149;
+  --color-ink-mute: #5d6963;
+  --color-ink-faint: #8d9994;
+
+  /* ——— WhatsApp (couleur de marque, usage unique) ——— */
+  --color-wa: #1fa855;
+  --color-wa-dark: #178a45;
+
+  /* ——— Anneau de focus ——— */
+  --color-ring: #145234;
+  --color-ring-light: #92d3ae;
+
+  /* ——— Ombres : douces, jamais dures ——— */
+  --shadow-soft: 0 1px 2px rgb(14 21 18 / 0.04), 0 8px 24px -12px rgb(14 21 18 / 0.10);
+  --shadow-lift: 0 2px 4px rgb(14 21 18 / 0.05), 0 18px 40px -20px rgb(14 21 18 / 0.20);
+  --shadow-inset-top: inset 0 1px 0 0 rgb(255 255 255 / 0.6);
+
+  /* ——— Rythme ——— */
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+
+  /* ——— Animations (discrètes) ——— */
+  --animate-fade-up: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-fade-in: fade-in 0.6s ease-out both;
+  --animate-drift: drift 7s ease-in-out infinite;
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 14px, 0);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes drift {
+    0%,
+    100% {
+      transform: translate3d(0, 0, 0);
+    }
+    50% {
+      transform: translate3d(0, -6px, 0);
+    }
+  }
+}
+
+@layer base {
+  :root {
+    color-scheme: light;
+    /* Décalage des ancres sous la navbar sticky */
+    scroll-padding-top: 6rem;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-ivory);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-synthesis-weight: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.022em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Défilement fluide entre les sections */
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  /* Anneau de focus visible et cohérent partout */
+  :focus-visible {
+    outline: 2px solid var(--color-forest-600);
+    outline-offset: 2px;
+    border-radius: 3px;
+  }
+
+  ::selection {
+    background-color: var(--color-leaf-200);
+    color: var(--color-forest-900);
+  }
+}
+
+@layer components {
+  /* Anneau de focus homogène — à poser sur tout lien et bouton
+     (cf. Button / ButtonLink dans components/ui/Primitives.tsx). */
+  .focus-ring:focus-visible {
+    outline: 2px solid var(--color-ring);
+    outline-offset: 2px;
+  }
+
+  .focus-ring-light:focus-visible {
+    outline-color: var(--color-ring-light);
+  }
+
+  .focus-ring-inset:focus-visible {
+    outline-offset: -2px;
+  }
+
+  /* Lien d'évitement, visible uniquement au clavier */
+  .skip-link {
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    z-index: 100;
+    transform: translateY(-200%);
+    border-radius: var(--radius-sm);
+    background-color: var(--color-forest-800);
+    padding: 0.625rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: white;
+    transition: transform 0.2s ease;
+  }
+
+  .skip-link:focus-visible {
+    transform: translateY(0);
+  }
+
+  /* Grain très léger, évite l'aplat « template » des aplats verts */
+  .grain::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.5;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.22'/%3E%3C/svg%3E");
+  }
+
+  .tabular {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: 'tnum' 1;
+  }
+
+  /* Révélation au défilement — voir components/ui/Reveal.tsx */
+  [data-reveal] {
+    transition:
+      opacity 700ms cubic-bezier(0.22, 1, 0.36, 1),
+      transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+  }
+
+  [data-reveal='out'] {
+    opacity: 0;
+    transform: translate3d(0, 14px, 0);
+  }
+
+  [data-reveal='in'] {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Les éléments déjà visibles à l'écran ne doivent jamais clignoter */
+  @media (prefers-reduced-motion: reduce) {
+    [data-reveal] {
+      transition: none;
+    }
+    [data-reveal='out'] {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}
+
+@layer utilities {
+  /* Masquage de la barre de défilement du menu mobile */
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Respect strict des préférences de mouvement réduit */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
