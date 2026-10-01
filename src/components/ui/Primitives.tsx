@@ -1,7 +1,7 @@
 import type { ComponentPropsWithoutRef, ElementType, ReactNode } from 'react'
 
 /* ------------------------------------------------------------------ */
-/* Container — gabarit de largeur maximal, cohérent sur tout le site   */
+/* Container : gabarit de largeur maximal, cohérent sur tout le site   */
 /* ------------------------------------------------------------------ */
 
 export function Container({
@@ -20,7 +20,7 @@ export function Container({
 }
 
 /* ------------------------------------------------------------------ */
-/* Section — espacement vertical + ancre de navigation                 */
+/* Section : espacement vertical + ancre de navigation                 */
 /* ------------------------------------------------------------------ */
 
 export function Section({
@@ -56,7 +56,7 @@ export function Section({
 }
 
 /* ------------------------------------------------------------------ */
-/* Eyebrow — petit libellé au-dessus des titres                       */
+/* Eyebrow : petit libellé au-dessus des titres                       */
 /* ------------------------------------------------------------------ */
 
 export function Eyebrow({
@@ -86,7 +86,7 @@ export function Eyebrow({
 }
 
 /* ------------------------------------------------------------------ */
-/* Button — un seul composant, plusieurs variantes                    */
+/* Button : un seul composant, plusieurs variantes                    */
 /* ------------------------------------------------------------------ */
 
 type Variant = 'primary' | 'secondary' | 'ghost' | 'whatsapp' | 'onDark' | 'onDarkGhost'

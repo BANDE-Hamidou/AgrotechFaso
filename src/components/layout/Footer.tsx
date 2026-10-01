@@ -11,7 +11,7 @@ export function Footer() {
     <footer className="bg-forest-950 text-white">
       <Container size="wide">
         <div className="grid gap-12 py-16 lg:grid-cols-[1.4fr_1fr_1fr] lg:gap-16 lg:py-20">
-          {/* ——— Marque ——— */}
+          {/* Marque */}
           <div className="max-w-sm">
             <Logo tone="light" />
             <p className="mt-5 text-[0.9375rem] leading-relaxed text-white/60">
@@ -33,7 +33,7 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* ——— Liens ——— */}
+          {/* Liens */}
           <nav aria-label="Liens de pied de page">
             <h2 className="text-[0.6875rem] font-semibold tracking-[0.16em] text-leaf-300 uppercase">
               Navigation
@@ -52,7 +52,7 @@ export function Footer() {
             </ul>
           </nav>
 
-          {/* ——— Contact ——— */}
+          {/* Contact */}
           <div>
             <h2 className="text-[0.6875rem] font-semibold tracking-[0.16em] text-leaf-300 uppercase">
               Contact
@@ -79,13 +79,13 @@ export function Footer() {
           </div>
         </div>
 
-        {/* ——— Copyright ——— */}
+        {/* Copyright */}
         <div className="flex flex-col gap-3 border-t border-white/10 py-7 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-[0.8125rem] text-white/45">
             © {YEAR} {brand.name}. {footer.legal}
           </p>
           <p className="text-[0.75rem] text-white/55">
-            Données chiffrées indicatives — scénario pilote / simulation.
+            Données chiffrées indicatives, scénario pilote / simulation.
           </p>
         </div>
       </Container>

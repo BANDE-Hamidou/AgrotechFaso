@@ -54,7 +54,7 @@ export function Navbar() {
             href="#accueil"
             onClick={go}
             className="focus-ring rounded-md"
-            aria-label={`${brand.name} — retour en haut de page`}
+            aria-label={`${brand.name}, retour en haut de page`}
           >
             <Logo />
           </a>

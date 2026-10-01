@@ -15,7 +15,7 @@ export function Investors() {
 
       <Container className="relative">
         <div className="grid gap-12 lg:grid-cols-[1fr_1fr] lg:gap-20">
-          {/* ——— Argumentaire ——— */}
+          {/* Argumentaire */}
           <div>
             <Reveal>
               <Eyebrow tone="light">{investors.eyebrow}</Eyebrow>
@@ -63,7 +63,7 @@ export function Investors() {
             </Reveal>
           </div>
 
-          {/* ——— Emplacement vidéo ——— */}
+          {/* Emplacement vidéo */}
           <Reveal delay={120}>
             <div id="video">
               <figure className="overflow-hidden rounded-xl bg-forest-950 ring-1 ring-white/10">

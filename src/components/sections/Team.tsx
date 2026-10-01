@@ -86,7 +86,7 @@ export function Team() {
           ))}
         </div>
 
-        {/* ——— Bandeau terrain ——— */}
+        {/* Bandeau terrain */}
         <Reveal delay={120}>
           <figure className="mt-16 grid overflow-hidden rounded-xl bg-forest-900 lg:grid-cols-[1.4fr_1fr]">
             <img

@@ -26,7 +26,7 @@ export function Contact() {
     <Section id="contact" tone="ivory" labelledBy="contact-title">
       <Container>
         <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:gap-16">
-          {/* ——— Colonne gauche ——— */}
+          {/* Colonne gauche */}
           <div>
             <Reveal>
               <Eyebrow>{contact.eyebrow}</Eyebrow>
@@ -98,7 +98,7 @@ export function Contact() {
             </Reveal>
           </div>
 
-          {/* ——— Formulaire ——— */}
+          {/* Formulaire */}
           <Reveal delay={100}>
             <form
               onSubmit={onSubmit}

@@ -50,7 +50,7 @@ export function Hero() {
 
       <Container size="wide" className="relative">
         <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
-          {/* ——— Colonne texte ——— */}
+          {/* Colonne texte */}
           <div className="max-w-2xl">
             <p className="inline-flex items-center gap-2 rounded-full border border-line bg-white px-3 py-1.5 text-[0.6875rem] font-semibold tracking-[0.14em] text-forest-700 uppercase shadow-soft">
               <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-forest-500" />
@@ -95,7 +95,7 @@ export function Hero() {
             </p>
           </div>
 
-          {/* ——— Colonne visuelle ——— */}
+          {/* Colonne visuelle */}
           <div className="relative">
             <div className="relative overflow-hidden rounded-xl bg-forest-900 shadow-lift">
               <picture>

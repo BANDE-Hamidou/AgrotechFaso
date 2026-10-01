@@ -1,7 +1,7 @@
 import { siFacebook, siInstagram, siWhatsapp, siX, siYoutube } from 'simple-icons'
 
 /**
- * Marques officielles tracées en SVG vectoriel — jamais en image bitmap.
+ * Marques officielles tracées en SVG vectoriel : jamais en image bitmap.
  * Jeu de données Simple Icons (licence CC0-1.0) + marque LinkedIn.
  */
 

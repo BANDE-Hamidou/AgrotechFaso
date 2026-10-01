@@ -7,7 +7,7 @@ export function Results() {
   return (
     <Section id="resultats" tone="white" labelledBy="resultats-title">
       <Container>
-        {/* ——— En-tête + chiffres ——— */}
+        {/* En-tête + chiffres */}
         <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-end lg:gap-16">
           <Reveal>
             <Eyebrow>{results.eyebrow}</Eyebrow>
@@ -44,7 +44,7 @@ export function Results() {
           </dl>
         </div>
 
-        {/* ——— Témoignage + image ——— */}
+        {/* Témoignage + image */}
         <div className="mt-16 grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-stretch lg:gap-12">
           <Reveal>
             <figure className="flex h-full flex-col justify-between rounded-xl border border-line bg-ivory p-7 sm:p-9">

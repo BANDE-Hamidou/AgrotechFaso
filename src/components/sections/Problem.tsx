@@ -8,7 +8,7 @@ export function Problem() {
     <Section id="probleme" tone="mist" labelledBy="probleme-title">
       <Container>
         <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-20">
-          {/* ——— Colonne texte ——— */}
+          {/* Colonne texte */}
           <div>
             <Reveal>
               <Eyebrow>{problem.eyebrow}</Eyebrow>
@@ -45,7 +45,7 @@ export function Problem() {
             </ul>
           </div>
 
-          {/* ——— Colonne image ——— */}
+          {/* Colonne image */}
           <Reveal delay={120}>
             <figure className="relative">
               <div className="overflow-hidden rounded-xl bg-forest-900 shadow-lift">

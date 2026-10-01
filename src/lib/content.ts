@@ -7,12 +7,12 @@ export const brand = {
   name: 'AgroTech Faso',
   baseline: 'Irrigation intelligente',
   /* Emplacement : adaptateur pour l’ancre #contact */
-  location: 'Dakar, Sénégal',
-  email: 'contact@agrotechfaso.com',
-  phone: '+221 77 000 00 00',
+  location: 'Ouagadougou, Burkina Faso',
+  email: 'iyuji1674@gmail.com',
+  phone: '+226 67 28 00 39',
   /* Numéro au format international, sans « + » ni espaces (lien wa.me) */
-  whatsapp: '221770000000',
-  whatsappLabel: '+221 77 000 00 00',
+  whatsapp: '22667280039',
+  whatsappLabel: '+226 67 28 00 39',
 } as const
 
 export const nav = [
@@ -282,6 +282,11 @@ export const footer = {
     { icon: 'linkedin', label: 'LinkedIn', href: '#' },
     { icon: 'x', label: 'X', href: '#' },
     { icon: 'youtube', label: 'YouTube', href: '#' },
+    {
+      icon: 'facebook',
+      label: 'Facebook',
+      href: 'https://www.facebook.com/share/p/1DccSQ1Kxd/',
+    },
   ],
   legal: 'Tous droits réservés.',
 } as const

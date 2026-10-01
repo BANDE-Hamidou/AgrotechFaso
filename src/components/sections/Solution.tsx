@@ -16,7 +16,7 @@ export function Solution() {
   return (
     <Section id="solution" tone="ivory" labelledBy="solution-title">
       <Container>
-        {/* ——— En-tête ——— */}
+        {/* En-tête */}
         <div className="max-w-2xl">
           <Reveal>
             <Eyebrow>{solution.eyebrow}</Eyebrow>
@@ -32,7 +32,7 @@ export function Solution() {
           </Reveal>
         </div>
 
-        {/* ——— Les trois étapes ——— */}
+        {/* Les trois étapes */}
         <ol className="mt-14 grid gap-px overflow-hidden rounded-lg bg-line sm:grid-cols-3">
           {solution.steps.map((step, index) => (
             <Reveal as="li" key={step.number} delay={index * 90}>
@@ -53,7 +53,7 @@ export function Solution() {
           ))}
         </ol>
 
-        {/* ——— Chaîne de transmission ——— */}
+        {/* Chaîne de transmission */}
         <Reveal delay={80}>
           <div className="mt-16 overflow-hidden rounded-xl border border-line bg-white shadow-soft">
             <div className="grid lg:grid-cols-[1.25fr_1fr]">
