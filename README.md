@@ -27,14 +27,14 @@ chiffres, membres d'équipe, liens, coordonnées. Modifier ce fichier suffit à
 mettre à jour le site — aucun composant n'a de texte en dur.
 
 ```ts
-export const brand = { name: 'Solis', email: '…', phone: '…', whatsapp: '221770000000', … }
+export const brand = { name: 'AgroTech Faso', email: '…', phone: '…', whatsapp: '221770000000', … }
 ```
 
 ### À personnaliser avant mise en ligne
 
 | Élément | Où | État |
 | --- | --- | --- |
-| Nom de marque `Solis` | `content.ts` → `brand.name` | **placeholder** à remplacer |
+| Nom de marque `AgroTech Faso` | `content.ts` → `brand.name` | fait |
 | E-mail / téléphone / WhatsApp | `content.ts` → `brand` | **factices** (Dakar, +221 77…) |
 | Localisation | `content.ts` → `brand.location` | factice |
 | Liens réseaux sociaux (`href: '#'`) | `content.ts` → `footer.socials` | **à compléter** |

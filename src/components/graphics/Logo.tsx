@@ -1,7 +1,9 @@
 /**
- * Marque Solis : une goutte dont la base se prolonge en racine.
+ * Marque AgroTech Faso : une goutte dont la base se prolonge en racine.
  * Dessinée en SVG afin de rester nette à toutes les tailles.
  */
+import { brand } from '../../lib/content'
+
 export function Logo({
   className = '',
   tone = 'dark',
@@ -40,12 +42,12 @@ export function Logo({
         <span
           className={`font-display text-[1.0625rem] font-bold tracking-[-0.03em] ${wordmark}`}
         >
-          Solis
+          {brand.name}
         </span>
         <span
           className={`mt-1 text-[0.5625rem] font-semibold tracking-[0.18em] uppercase ${baseline}`}
         >
-          Agri-tech
+          {brand.baseline}
         </span>
       </span>
     </span>

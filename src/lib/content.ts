@@ -4,11 +4,11 @@
  */
 
 export const brand = {
-  name: 'Solis',
-  baseline: 'Agri-tech',
+  name: 'AgroTech Faso',
+  baseline: 'Irrigation intelligente',
   /* Emplacement : adaptateur pour l’ancre #contact */
   location: 'Dakar, Sénégal',
-  email: 'contact@solis.agritech',
+  email: 'contact@agrotechfaso.com',
   phone: '+221 77 000 00 00',
   /* Numéro au format international, sans « + » ni espaces (lien wa.me) */
   whatsapp: '221770000000',
@@ -36,7 +36,7 @@ export const hero = {
   image: {
     src: '/img/hero-field.webp',
     fallback: '/img/hero-field.jpg',
-    alt: "Un petit exploitant agricole travaille dans un champ de cultures vertes,illustration de la solution Solis.",
+    alt: "Un petit exploitant agricole travaille dans un champ de cultures vertes,illustration de la solution AgroTech Faso.",
     width: 1100,
     height: 825,
   },
@@ -269,7 +269,7 @@ export const contact = {
 
 export const footer = {
   description:
-    "Solis conçoit un capteur d’humidité du sol pour aider les agriculteurs africains à irriguer au bon moment.",
+    "AgroTech Faso conçoit un capteur d’humidité du sol pour aider les agriculteurs africains à irriguer au bon moment.",
   links: [
     { label: 'Accueil', href: '#accueil' },
     { label: 'Solution', href: '#solution' },
