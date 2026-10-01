@@ -1,3 +1,4 @@
+import { useRef, useState } from 'react'
 import { Play } from 'lucide-react'
 import { Container, Eyebrow, Section, ButtonLink } from '../ui/Primitives'
 import { Reveal } from '../ui/Reveal'
@@ -5,6 +6,15 @@ import { Icon } from '../icons/Icon'
 import { investors, links } from '../../lib/content'
 
 export function Investors() {
+  const [active, setActive] = useState(0)
+  const videoRef = useRef<HTMLVideoElement>(null)
+  const current = investors.videos[active]
+
+  const select = (index: number) => {
+    setActive(index)
+    videoRef.current?.load()
+  }
+
   return (
     <Section id="investisseurs" tone="dark" labelledBy="investisseurs-title" className="grain">
       {/* Voile arrière-plan, très bas contraste */}
@@ -63,35 +73,55 @@ export function Investors() {
             </Reveal>
           </div>
 
-          {/* Emplacement vidéo */}
+          {/* Lecteur vidéo */}
           <Reveal delay={120}>
-            <div id="video">
+            <div id="video" className="scroll-mt-28">
               <figure className="overflow-hidden rounded-xl bg-forest-950 ring-1 ring-white/10">
-                <div className="relative aspect-16/10 w-full">
-                  <img
-                    src={investors.image.src}
-                    alt=""
-                    aria-hidden="true"
-                    width={investors.image.width}
-                    height={investors.image.height}
-                    loading="lazy"
-                    decoding="async"
-                    className="h-full w-full object-cover opacity-45"
-                  />
-                  <div
-                    aria-hidden="true"
-                    className="absolute inset-0 bg-gradient-to-t from-forest-950 via-forest-950/50 to-forest-950/20"
-                  />
-
-                  <div className="absolute inset-0 flex flex-col items-center justify-center px-8 text-center">
-                    <span className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-white/95 text-forest-900 shadow-lift transition-transform duration-200 hover:scale-105">
-                      <Play className="ml-0.5 h-5 w-5" aria-hidden />
-                    </span>
-                    <p className="mt-5 max-w-xs text-[0.875rem] leading-relaxed text-leaf-200/80">
-                      {investors.videoNote}
-                    </p>
-                  </div>
+                <div className="relative aspect-square w-full bg-black">
+                  <video
+                    ref={videoRef}
+                    key={current.id}
+                    className="h-full w-full object-cover"
+                    controls
+                    playsInline
+                    preload="metadata"
+                    poster={current.poster}
+                    aria-label={`Vidéo : ${current.label}`}
+                  >
+                    <source src={current.src} type="video/mp4" />
+                    Votre navigateur ne sait pas lire cette vidéo.
+                  </video>
                 </div>
+
+                <figcaption className="border-t border-white/10 px-5 py-4">
+                  <div
+                    role="tablist"
+                    aria-label="Versions de la vidéo de présentation"
+                    className="flex flex-wrap gap-2"
+                  >
+                    {investors.videos.map((video, index) => (
+                      <button
+                        key={video.id}
+                        type="button"
+                        role="tab"
+                        aria-selected={index === active}
+                        aria-controls="video-panel"
+                        onClick={() => select(index)}
+                        className={`focus-ring-light rounded-md px-3 py-1.5 text-[0.8125rem] font-medium transition-colors duration-200 ${
+                          index === active
+                            ? 'bg-white text-forest-900'
+                            : 'bg-white/10 text-white/70 hover:bg-white/20 hover:text-white'
+                        }`}
+                      >
+                        {video.label}
+                        <span className="tabular ml-1.5 opacity-60">{video.duration}</span>
+                      </button>
+                    ))}
+                  </div>
+                  <p className="mt-3 text-[0.8125rem] leading-relaxed text-leaf-200/70">
+                    {investors.videoNote}
+                  </p>
+                </figcaption>
               </figure>
             </div>
           </Reveal>

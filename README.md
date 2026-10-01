@@ -35,12 +35,13 @@ export const brand = { name: 'AgroTech Faso', email: '…', phone: '…', whatsa
 | Élément | Où | État |
 | --- | --- | --- |
 | Nom de marque `AgroTech Faso` | `content.ts` → `brand.name` | fait |
-| E-mail / téléphone / WhatsApp | `content.ts` → `brand` | **factices** (Dakar, +221 77…) |
-| Localisation | `content.ts` → `brand.location` | factice |
-| Liens réseaux sociaux (`href: '#'`) | `content.ts` → `footer.socials` | **à compléter** |
+| E-mail / téléphone / WhatsApp | `content.ts` → `brand` | fait |
+| Localisation | `content.ts` → `brand.location` | fait |
+| Liens réseaux sociaux | `content.ts` → `footer.socials` | Facebook renseigné, LinkedIn / X / YouTube en `#` |
 | Membres d'équipe (noms, photos) | `content.ts` → `team.members` | **placeholder** |
-| Chiffres « 30 % / 20+ / 90 % » | `content.ts` → `results.stats` | **simulation**,see ci-dessous |
-| Vidéo de présentation | `section Investors.tsx` → `#video` | emplacement vide |
+| Chiffres « 30 % / 20+ / 90 % » | `content.ts` → `results.stats` | **simulation**,voir ci-dessous |
+| Vidéo de présentation | `content.ts` → `investors.videos` | 4 versions encodées |
+| Galerie du dispositif | `content.ts` → `solution.gallery` | 6 photos |
 | Envoi du formulaire | `section Contact.tsx` → `onSubmit` | non branché |
 
 ### Photos de l'équipe
@@ -165,12 +166,35 @@ maillons du schéma. Aucun glassmorphism, aucun dégradé décoratif, aucun carr
   sont dans le bundle ou dans `public/`).
 - Photos servies en **WebP** (repli `<picture>` → JPEG), `loading="lazy"` et
   `decoding="async"` sur tout ce qui est sous la ligne de flottaison.
-- ~3,9 Mo d'images au total, 1 seule image au-dessus de la ligne de flottaison.
+- ~4,4 Mo d'images au total, 1 seule image au-dessus de la ligne de flottaison.
+- 4 vidéos MP4 (H.264 + AAC, 1080x1080, `faststart`) en `public/video/`,
+  **16 Mo** au total. `preload="metadata"` : le fichier n'est téléchargé qu'au
+  clic sur lecture, et le serveur répond en `206` pour les requêtes partielles.
 
 | Format | Contenu | Gzip |
 | --- | --- | --- |
-| CSS | 46,1 ko | 10,9 ko |
-| JS | 275,8 ko | 85,6 ko |
+| CSS | 45,2 ko | 10,9 ko |
+| JS | 278,7 ko | 86,3 ko |
+
+### Médias sources
+
+Les fichiers d'origine (photos 4:3 non compressées, MP4 de 7 à 13 Mo) sont
+conservés dans `medias-source/`, **hors dépôt Git et hors déploiement**. Les
+versions servies par le site sont encodées dans `public/` :
+
+```bash
+# Ré-encoder une vidéo (1080 carré, CRF 28)
+ffmpeg -i source.mp4 -vf "scale='min(1080,iw)':-2" \
+  -c:v libx264 -crf 28 -preset slow -pix_fmt yuv420p \
+  -c:a aac -b:a 96k -movflags +faststart public/video/nom.mp4
+
+# Extraire un poster
+ffmpeg -ss 2 -i public/video/nom.mp4 -frames:v 1 -q:v 82 public/img/nom-poster.jpg
+
+# Convertir une photo en WebP + repli JPEG
+ffmpeg -i source.png -c:v libwebp -q:v 76 public/img/nom.webp
+ffmpeg -i source.png -q:v 80 public/img/nom.jpg
+```
 
 ---
 

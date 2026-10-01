@@ -131,6 +131,35 @@ export function Solution() {
             </div>
           </div>
         </Reveal>
+
+        {/* Galerie du dispositif */}
+        <Reveal delay={120}>
+          <div className="mt-12">
+            <p className="text-[0.6875rem] font-semibold tracking-[0.16em] text-forest-600 uppercase">
+              Le dispositif en images
+            </p>
+            <ul className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-3">
+              {solution.gallery.map((shot) => (
+                <li key={shot.src}>
+                  <figure className="group overflow-hidden rounded-lg bg-leaf-50 ring-1 ring-line">
+                    <picture>
+                      <source srcSet={shot.src} type="image/webp" />
+                      <img
+                        src={shot.fallback}
+                        alt={shot.alt}
+                        width={shot.width}
+                        height={shot.height}
+                        loading="lazy"
+                        decoding="async"
+                        className="aspect-4/3 w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                      />
+                    </picture>
+                  </figure>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </Reveal>
       </Container>
     </Section>
   )

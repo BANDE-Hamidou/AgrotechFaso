@@ -112,6 +112,58 @@ export const solution = {
     width: 1100,
     height: 825,
   },
+  /** Galerie du dispositif photographié, du capteur à sa mise en parcelle. */
+  gallery: [
+    {
+      src: '/img/capteur-1.webp',
+      fallback: '/img/capteur-1.jpg',
+      alt: 'Capteur AgroTech Faso photographié de face.',
+      width: 1000,
+      height: 558,
+    },
+    {
+      src: '/img/capteur-3.webp',
+      fallback: '/img/capteur-3.jpg',
+      alt: 'Capteur AgroTech Faso, vue de profil.',
+      width: 1000,
+      height: 563,
+    },
+    {
+      src: '/img/capteur-4.webp',
+      fallback: '/img/capteur-4.jpg',
+      alt: 'Capteur AgroTech Faso, vue de l’arrière et connectique.',
+      width: 1000,
+      height: 558,
+    },
+    {
+      src: '/img/capteur-5.webp',
+      fallback: '/img/capteur-5.jpg',
+      alt: 'Capteur AgroTech Faso posé sur un sol cultivé.',
+      width: 1000,
+      height: 558,
+    },
+    {
+      src: '/img/capteur-arrosage.webp',
+      fallback: '/img/capteur-arrosage.jpg',
+      alt: 'Capteur AgroTech Faso relié à une ligne d’arrosage.',
+      width: 1000,
+      height: 667,
+    },
+    {
+      src: '/img/capteur-agriculteur.webp',
+      fallback: '/img/capteur-agriculteur.jpg',
+      alt: 'Un agriculteur tient le capteur AgroTech Faso dans sa parcelle.',
+      width: 707,
+      height: 527,
+    },
+  ],
+  cover: {
+    src: '/img/capteur-couverture.webp',
+    fallback: '/img/capteur-couverture.jpg',
+    alt: 'Capteurs AgroTech Faso photographiés de face.',
+    width: 1080,
+    height: 1350,
+  },
 } as const
 
 export const results = {
@@ -177,8 +229,41 @@ export const investors = {
   ],
   primary: 'Voir la vidéo',
   secondary: 'Nous contacter',
-  videoNote:
-    "Emplacement réservé à la vidéo de présentation du projet (MP4, YouTube ou Vimeo).",
+  videoNote: "Choisissez une version, la lecture démarre dans le lecteur.",
+  /**
+   * Versions de la présentation, encodées en 1080x1080 (H.264 + AAC, faststart).
+   * Les fichiers sources non compressés vivent dans `medias-source/`, hors dépôt.
+   */
+  videos: [
+    {
+      id: 'humidite',
+      label: 'Capteurs d’humidité',
+      duration: '35 s',
+      src: '/video/capteurs-humidite.mp4',
+      poster: '/img/capteurs-humidite-poster.jpg',
+    },
+    {
+      id: 'voix-propre',
+      label: 'Version commentée',
+      duration: '1 min 07',
+      src: '/video/capteurs-voix-propre.mp4',
+      poster: '/img/capteurs-voix-propre-poster.jpg',
+    },
+    {
+      id: 'voix-off',
+      label: 'Version sous-titrée',
+      duration: '59 s',
+      src: '/video/capteurs-voix-off.mp4',
+      poster: '/img/capteurs-voix-off-poster.jpg',
+    },
+    {
+      id: 'voix-feminine',
+      label: 'Version voix féminine',
+      duration: '1 min 24',
+      src: '/video/capteurs-voix-feminine.mp4',
+      poster: '/img/capteurs-voix-feminine-poster.jpg',
+    },
+  ],
   image: {
     src: '/img/farmland-rows.webp',
     fallback: '/img/farmland-rows.jpg',
